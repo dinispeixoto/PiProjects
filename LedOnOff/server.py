@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from led_controller import setupLed, ON, OFF 
+from led_controller import setupLed, ledON, ledOFF 
 from sys import argv
 
 app = Flask(__name__)
@@ -13,13 +13,13 @@ def index():
     return render_template('index.html')
 
 @app.route('/ON')
-def ledON():
-    ON(led_gpio)
+def ON():
+    ledON(led_gpio)
     return render_template('index.html')
 
 @app.route('/OFF')
-def ledOFF():
-    OFF(led_gpio)
+def OFF():
+    ledOFF(led_gpio)
     return render_template('index.html')    
 
 if __name__ == '__main__':
